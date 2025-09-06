@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# Next.js build
+.next/
+out/
+dist/
+.cache/
+
+# env (keep example)
+.env*
+!.env.example
+
+# app data / caches
+data/
+store/
+uploads/
+public/uploads/
+ocr_cache/
+vector/
+*.db
+*.sqlite
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store

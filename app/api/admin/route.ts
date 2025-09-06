@@ -1,0 +1,1 @@
+import { NextResponse } from 'next/server'; export const runtime='nodejs'; export const dynamic='force-dynamic'; export async function GET(){ return NextResponse.json({ ok:true, models:{ embed: process.env.OLLAMA_EMBED_MODEL || 'nomic-embed-text', chat: process.env.OLLAMA_CHAT_MODEL || 'llama3.1:8b' } }); }

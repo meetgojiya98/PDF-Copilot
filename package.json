@@ -1,0 +1,40 @@
+{
+  "name": "pau-copilot-langchain",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@langchain/community": "0.2.20",
+    "@langchain/core": "0.2.32",
+    "better-sqlite3": "^9.6.0",
+    "clsx": "^2.1.1",
+    "execa": "^8.0.1",
+    "framer-motion": "^12.23.12",
+    "hnswlib-node": "^3.0.0",
+    "langchain": "0.2.20",
+    "lucide-react": "^0.542.0",
+    "next": "14.2.5",
+    "pdf-parse": "^1.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.2"
+  },
+  "overrides": {
+    "ignore": "5.2.4"
+  }
+}

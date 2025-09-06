@@ -1,0 +1,8 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { chunkText } from '@/lib/chunk';
+import { insertChunks } from '@/lib/store';
+import { addChunksToVector } from '@/lib/vector';
+import { parsePdf } from '@/lib/pdf';
+export const runtime='nodejs'; export const dynamic='force-dynamic';
+function error(status:number, msg:string){ return NextResponse.json({ ok:false, error: msg }, { status }); }
+export async function POST(req: NextRequest){ try{ const form = await req.formData().catch(()=>null); if(!form) return error(400,'Invalid multipart/form-data'); const files = form.getAll('files') as File[]; if(!files?.length) return error(400,'No files provided'); let total = 0; for(const f of files){ const name = f?.name || 'Document'; const buf = Buffer.from(await f.arrayBuffer()); let text=''; if(name.toLowerCase().endsWith('.pdf')){ try{ text = await parsePdf(buf); }catch(e:any){ return error(400, `Failed to parse ${name}: ${e?.message || e}`); } } else { text = buf.toString('utf-8'); } if(!text.trim()) return error(400, `${name} appears to be empty`); const chunks = chunkText(text,800,120).map(c=>({ title:name, content:c })); insertChunks(chunks); await addChunksToVector(chunks); total += chunks.length; } return NextResponse.json({ ok:true, addedChunks: total }); }catch(e:any){ console.error('Upload crash:', e?.message || e); return error(500,'Upload failed unexpectedly'); } }
