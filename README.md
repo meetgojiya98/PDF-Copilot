@@ -8,6 +8,15 @@ Features:
 - Streaming answers (NDJSON) + quoted snippets
 - SQLite for chunk store
 
+## Screenshots
+
+<img width="3020" height="1508" alt="image" src="https://github.com/user-attachments/assets/347f76cb-80a5-4915-a049-21197a879e6e" />
+
+<img width="3020" height="1508" alt="image" src="https://github.com/user-attachments/assets/9d330bb3-9f37-419a-bc26-28a18d32999f" />
+
+<img width="3020" height="1508" alt="image" src="https://github.com/user-attachments/assets/3638e451-4402-4ed5-a31b-215eac56ed62" />
+
+
 ## Prereqs
 - Node 18+
 - Ollama running locally
